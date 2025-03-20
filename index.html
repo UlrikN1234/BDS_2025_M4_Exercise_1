@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Penguin Predictions</title>
+    <title>Penguin Prediction</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
@@ -26,7 +26,7 @@
         .container {
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
-            padding: 25px;
+            padding: 30px;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             text-align: center;
@@ -47,9 +47,42 @@
             color: #333;
         }
 
-        .prediction-info {
-            font-size: 16px;
-            line-height: 1.6;
+        .btn {
+            background: #3498db;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 600;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+            transform: scale(1.05);
+        }
+
+        .btn img {
+            width: 25px;
+            height: 25px;
+            margin-left: 10px;
+        }
+
+        .prediction-box {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
         }
 
         .highlight {
@@ -71,7 +104,7 @@
             border-top-color: #3498db;
             border-radius: 50%;
             animation: spin 1s linear infinite;
-            margin-top: 10px;
+            margin: 10px auto;
         }
 
         @keyframes spin {
@@ -81,14 +114,21 @@
     </style>
     <script>
         async function loadPrediction() {
-            const predictionContainer = document.getElementById("prediction");
+            const button = document.getElementById("predict-btn");
+            const predictionBox = document.getElementById("prediction");
+            button.innerHTML = "Predicting... ⏳";
+            button.disabled = true;
+
+            predictionBox.style.display = "block";
+            predictionBox.innerHTML = `<div class="spinner"></div><p class='loading'>Fetching today's penguin species...</p>`;
+
             try {
                 const response = await fetch('penguin_prediction.json');
                 const data = await response.json();
                 
-                predictionContainer.innerHTML = `
-                    <h2>🐧 Penguin Prediction</h2>
-                    <p class="prediction-info"><span class="highlight">📅 Date & Time:</span> ${data.datetime}</p>
+                predictionBox.innerHTML = `
+                    <h2>🐧 Today's Penguin Prediction</h2>
+                    <p class="prediction-info"><span class="highlight">📅 Timestamp:</span> ${data.datetime}</p>
                     <p class="prediction-info"><span class="highlight">📏 Bill Length:</span> ${data.bill_length_mm} mm</p>
                     <p class="prediction-info"><span class="highlight">📏 Bill Depth:</span> ${data.bill_depth_mm} mm</p>
                     <p class="prediction-info"><span class="highlight">🏊 Flipper Length:</span> ${data.flipper_length_mm} mm</p>
@@ -96,19 +136,19 @@
                     <p class="prediction-info"><span class="highlight">🔍 Predicted Species:</span> <strong>${data.predicted_species}</strong></p>
                 `;
             } catch (error) {
-                predictionContainer.innerHTML = "<p class='loading'>⚠️ Failed to load prediction. Please try again later.</p>";
+                predictionBox.innerHTML = "<p class='loading'>⚠️ Failed to load prediction. Please try again later.</p>";
             }
-        }
 
-        window.onload = () => {
-            document.getElementById("prediction").innerHTML = `<div class="spinner"></div><p class='loading'>Fetching latest prediction...</p>`;
-            setTimeout(loadPrediction, 1000); // Simulating delay
-        };
+            button.innerHTML = "Predict Again 🐧";
+            button.disabled = false;
+        }
     </script>
 </head>
 <body>
     <div class="container">
-        <div id="prediction" class="loading">Loading prediction...</div>
+        <h2>Predict the Species of Today's Penguin in NY</h2>
+        <button id="predict-btn" class="btn" onclick="loadPrediction()">Predict 🐧</button>
+        <div id="prediction" class="prediction-box"></div>
     </div>
 </body>
 </html>
