@@ -7,7 +7,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import StandardScaler
 
 # Loading dataset from SQLite
-conn = sqlite3.connect('penguins.db')
+conn = sqlite3.connect('data/penguins.db')
 df = pd.read_sql("SELECT * FROM PENGUINS", conn)
 conn.close()
 
@@ -31,11 +31,11 @@ model = RandomForestClassifier()
 model.fit(X_train, y_train)
 
 # Saving trained model and label encoder
-with open("model.pkl", "wb") as f:
+with open("models/model.pkl", "wb") as f:
     pickle.dump(model, f)
-with open("le.pkl", "wb") as f:
+with open("models/le.pkl", "wb") as f:
     pickle.dump(le, f)
-with open("scaler.pkl", "wb") as f:
+with open("models/scaler.pkl", "wb") as f:
     pickle.dump(scaler, f)
 
 print("Model, scaler, and label encoder trained and saved successfully!")
