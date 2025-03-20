@@ -5,13 +5,13 @@ import json
 
 
 # Loading trained model, label encoder and scaler
-with open("model.pkl", "rb") as f:
+with open("models/model.pkl", "rb") as f:
     model = pickle.load(f)
 
-with open("le.pkl", "rb") as f:
+with open("models/le.pkl", "rb") as f:
     le = pickle.load(f)
 
-with open("scaler.pkl", "rb") as f:
+with open("models/scaler.pkl", "rb") as f:
     scaler = pickle.load(f)
 
 # Fetching new penguin data from API
@@ -45,7 +45,7 @@ penguin_prediction = {
 }
 
 # Saving updated predictions to JSON  
-with open("penguin_prediction.json", "w") as f:
+with open("data/penguin_prediction.json", "w") as f:
     json.dump(penguin_prediction, f, indent=4)
 
 print("Prediction made and saved to database successfully. Prediction: {penguin_prediction}")
