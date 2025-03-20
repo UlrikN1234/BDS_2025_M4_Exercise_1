@@ -123,7 +123,7 @@
             predictionBox.innerHTML = `<div class="spinner"></div><p class='loading'>Fetching today's penguin species...</p>`;
 
             try {
-                const response = await fetch('penguin_prediction.json');
+                const response = await fetch('data/penguin_prediction.json');
                 const data = await response.json();
                 
                 predictionBox.innerHTML = `
