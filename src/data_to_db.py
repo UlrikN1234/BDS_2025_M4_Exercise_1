@@ -18,7 +18,7 @@ penguins_df = penguins.merge(islands_df, left_on='island', right_on='name', how=
 ]
 
 # Create SQLite Database
-conn = sqlite3.connect('penguins.db')
+conn = sqlite3.connect('data/penguins.db')
 cursor = conn.cursor()
 
 # Enable foreign key support
