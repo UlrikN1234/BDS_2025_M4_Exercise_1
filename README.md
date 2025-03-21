@@ -33,6 +33,7 @@ BDS_2025_M4_Exercise_1/ │── .github/workflows/ # GitHub Actions workflows
 │── index.html # Frontend webpage for displaying predictions
 │── README.md # Project documentation
 │── requirements.txt # Dependencies
+```
 
 ---
 
