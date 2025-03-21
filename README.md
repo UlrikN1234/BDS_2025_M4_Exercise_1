@@ -13,7 +13,8 @@ This project predicts the species of a penguin based on its physical characteris
 ## 📂 Project Structure  
 
 ```sh
-BDS_2025_M4_Exercise_1/ │── .github/workflows/ # GitHub Actions workflows
+BDS_2025_M4_Exercise_1/
+│── .github/workflows/ # GitHub Actions workflows
 │ ├── fetch_and_predict.yml # Automates fetching data and making predictions
 │
 │── data/ # Data storage
