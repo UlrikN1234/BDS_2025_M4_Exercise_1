@@ -1,9 +1,8 @@
 name: Fetch and Predict Penguin Species
 
 on:
-  workflow_dispatch:  # This allows manual runs
   schedule:
-    - cron: "0 0 * * *"  # Runs every day at midnight UTC (adjust as needed)
+    - cron: '30 7 * * *'  # Runs every day at 7:30 AM UTC
     
 jobs:
   fetch_and_predict:
