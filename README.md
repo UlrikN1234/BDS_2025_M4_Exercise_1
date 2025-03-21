@@ -1,11 +1,11 @@
 # 🐧 Penguin Prediction Project  
 
-This project predicts the species of a penguin based on its physical characteristics. The model is trained on penguin data and generates daily predictions that are stored in a JSON file.  
+This project predicts the species of a penguin based on its physical characteristics. The model is trained on penguin data and generates daily predictions that are stored in a JSON file. The github page is available at https://ulrikn1234.github.io/BDS_2025_M4_Exercise_1/
 
 ## 🚀 Project Overview  
 
-- The project fetches and predicts penguin species daily using a trained machine learning model.  
-- A **GitHub Actions workflow** automates the process of fetching data, making predictions, and updating the JSON file.  
+- The project fetches and predicts penguin species daily using a trained Random Forest machine learning model.   
+- A **GitHub Actions workflow** automates the process of fetching data, making predictions, and updating the JSON file every day at 7:30 AM.
 - The frontend (`index.html`) displays the latest penguin prediction using JavaScript.  
 
 ---
