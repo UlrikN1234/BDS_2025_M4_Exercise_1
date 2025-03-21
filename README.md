@@ -12,26 +12,27 @@ This project predicts the species of a penguin based on its physical characteris
 
 ## 📂 Project Structure  
 
-BDS_2025_M4_Exercise_1/ │── .github/workflows/
-│ ├── fetch_and_predict.yml
+```sh
+BDS_2025_M4_Exercise_1/ │── .github/workflows/ # GitHub Actions workflows
+│ ├── fetch_and_predict.yml # Automates fetching data and making predictions
 │
 │── data/ # Data storage
-│ ├── penguin.db 
-│ ├── penguin_prediction.json
+│ ├── penguin.db # SQLite database containing penguin data
+│ ├── penguin_prediction.json # Daily updated JSON with the latest prediction
 │
-│── models/ 
-│ ├── model.pkl
-│ ├── le.pkl
-│ ├── scaler.pkl
+│── models/ # Saved machine learning models
+│ ├── model.pkl # Trained ML model
+│ ├── le.pkl # Label encoder
+│ ├── scaler.pkl # Scaler for feature normalization
 │
-│── src/ 
-│ ├── data_to_db.py 
-│ ├── train_model.py
-│ ├── predict_penguin.py
+│── src/ # Python scripts for data processing and modeling
+│ ├── data_to_db.py # Converts raw data into SQLite database
+│ ├── train_model.py # Trains the ML model
+│ ├── predict_penguin.py # Generates daily predictions
 │
-│── index.html 
-│── README.md
-│── requirements.txt
+│── index.html # Frontend webpage for displaying predictions
+│── README.md # Project documentation
+│── requirements.txt # Dependencies
 
 ---
 
