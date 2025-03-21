@@ -85,8 +85,8 @@ BDS_2025_M4_Exercise_1/
 
 ## 📌 Notes 
 
-- The penguin_prediction.json file is updated daily via GitHub Actions and should not be manually modified.
-- The frontend fetches the JSON file from /data/penguin_prediction.json, so it must be correctly updated.
+- The 'penguin_prediction.json' file is updated daily via GitHub Actions and should not be manually modified.
+- The frontend fetches the JSON file from '/data/penguin_prediction.json', so it must be correctly updated.
 
 ---
 
