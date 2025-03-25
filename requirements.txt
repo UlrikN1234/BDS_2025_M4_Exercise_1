@@ -3,3 +3,4 @@ seaborn
 requests
 pickle-mixin
 scikit-learn
+schedule
